@@ -1,16 +1,9 @@
-require("dotenv").config();
-
-// Simple server connectivity 
-// const http = require("http");
-// http.createServer((req, res) => {
-//     res.write("Yor are successfully create a server");
-//     res.end()
-// }).listen(process.env.PORT);
+import dotenv from 'dotenv';
+dotenv.config();
+import http from 'http';
+import data from './data.js';
 
 // Server connectivity and made 
-const data = require('./data');
-const http = require('http');
-
 http.createServer((req, res) => {
   res.writeHead(200, {'Content-Type': 'application\json'});
   res.write(JSON.stringify(data));

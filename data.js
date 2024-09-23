@@ -4,4 +4,4 @@ const data = [
     {'name': 'Sumer Dabby','age': '24','profession': 'Software Engineer'}
 ];
 
-module.exports = data;
+export default data;
