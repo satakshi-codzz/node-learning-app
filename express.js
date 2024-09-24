@@ -49,7 +49,7 @@ dotenv.config();
 const __filename = new URL(import.meta.url).pathname;
 const __dirname = path.dirname(__filename);
 const publicFolder = path.join(__dirname, 'public');
-
+app.use(express.static(publicFolder));
 app.get('', (req,res) => {
     res.sendFile(`${publicFolder}/index.html`);
 });
