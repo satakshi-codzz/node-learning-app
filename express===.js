@@ -49,37 +49,13 @@ dotenv.config();
 const __filename = new URL(import.meta.url).pathname;
 const __dirname = path.dirname(__filename);
 const publicFolder = path.join(__dirname, 'public');
-
-// Add when working with static data 
-// app.use(express.static(publicFolder));
-
-// Add when working with dynamic pages/ data 
-app.set('view engine', 'ejs');
-
-
-// This is how get static files 
+app.use(express.static(publicFolder));
 app.get('', (req,res) => {
     res.sendFile(`${publicFolder}/index.html`);
 });
 
 app.get('/about-us', (req,res) => {
     res.sendFile(`${publicFolder}/about-us.html`);
-});
-
-//Get Dynamic Pages 
-app.get('/profile', (req,res)=>{
-    const user = {
-        name : "Satakshi Bhadwal",
-        email : 'satakshitpss@gmail.com',
-        age : 24,
-        profession : "Software Engineer",
-        skills : ['php', 'c', 'c++', 'node', 'react']
-    }
-    res.render('profile', {user});
-});
-
-app.get('/login', (req,res)=>{
-    res.render('login');
 });
 
 app.get('*', (req,res) => {
